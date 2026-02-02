@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homepage {
+  min-height: 94vh;
+}
+
+/* INTRODUCTION SECTION */
+
+.introduction {
+  display: flex;
+  padding: 8vw;
+}
+
+.introduction-text {
+  width: 32vw;
+  margin: 15vh 6vw 0 6vw;
+}
+
+.introduction-title {
+  font-weight: 600;
+  font-size: 5rem;
+}
+
+.introduction-content {
+  font-size: 1.2rem;
+  font-weight: 480;
+  text-align: justify;
+}
+
+.introduction-content a {
+  color: var(--foreground)
+}
+
+.introduction-content a:hover {
+  text-decoration: underline;
+}
+
+.highlight {
+  color: var(--foreground);
+}
+
+.profile-picture {
+  width: 30vw;
+  float: right;
+  margin: 8vh 0 0 10vw;
+  border-radius: 3vw;
+}
+
+@media (aspect-ratio < 1) {
+  .introduction-text {
+    width: 100%;
+  }
+  .profile-picture {
+    width: 0;
+    margin: 0;
+  }
+}
+
+
+.introduction-github-icon {
+  border-radius: 50%;
+  width: max(2.5vw, 4vh);
+  height: max(2.5vw, 4vh);
+  margin: 2vh 0 0 0;
+  transition: filter 0.3s, transform 0.3s ease;
+}
+
+.introduction-github-icon:hover {
+  filter: brightness(1.8);
+  transform: translateY(-0.7vh)
+}
+
+/* BLOG SECTION */
+.blog {
+  padding: 0 14vw 10vh 14vw;
+  display: flex;
+  min-height: 58vh;
+}
+
+.blogpost-display {
+  margin: 1.5vh 0 0 0;
+  width: 50vw;
+  border-radius: 10px;
+  display: flex;
+}
+
+.blogpost-display a {
+  background-color: var(--middleground);
+  border-color: #303455;
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: solid;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s, color 0.3s;
+  padding: 2vh 25px;
+}
+
+.blogpost-display a:hover {
+  transform: translateY(-0.5vh);
+}
+
+.blogpost-display a:hover .header {
+  color: var(--foreground);
+}
+
+.blogpost-display .header {
+  transition: color 0.3s;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.blogpost-display .description {
+  margin: 2vh 0 0 0;
+  font-size: 1.1rem;
+}
+
+.blogpost-display .secondrow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0.3vh 0 0 0;
+}
+
+.blogpost-display .secondrow .date {
+  font-size: 0.9rem;
+}
+
+.blogpost-display .secondrow .blogpost-display-tags {
+  display: flex;
+  gap: 8px;
+  margin: 0 0.5vw 0 0;
+}
+
+.blogpost-display .secondrow .blogpost-display-tags .blogpost-display-tag {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5vh 8px;
+  background-color: #263055;
+  border-color: #303455;
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: solid;
+  color: white;
+}
+
+.no-results {
+  font-size: 1.2rem;
+  margin: 1.5vh 0 0 0;
+}
+
+.blog .sidebar {
+  background-color: var(--middleground);
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: 13vw;
+  min-height: 40vh;
+  margin: 5vh 2vw 0 0;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.blog .sidebar .searchbar {
+  border-radius: 10px;
+  padding: 0 0.5vw 0 0.5vw;
+  background-color: #303455;
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.blog .sidebar .searchbar:hover {
+  background-color: #404465;
+}
+
+.blog .sidebar .searchinput {
+  font-size: 1rem;
+  margin: 1vh 1vw 1vh 0.5vw;
+  background-color: inherit;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+
+.blog .sidebar .searchinput::placeholder {
+  color: #a0a0a0;
+}
+
+.sidebar-tag-label {
+  margin: 1vh 0;
+  font-weight: 600;
+}
+
+.sidebar-tags {
+  display: flex;
+  gap: 0.5vw;
+  flex-wrap: wrap;
+}
+
+.sidebar-tag {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7vh 0.5vw;
+  background-color: #263055;
+  border-color: #303455;
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: solid;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.sidebar-tag:hover {
+  background-color: #364065;
+  border-color: #404465;
+}
+
+.sidebar-tag.selected {
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+
+.sidebar-tag.selected:hover {
+  background-color: #364065;
+  color: var(--foreground);
+  border-color: var(--foreground);
+}
+
+@media (aspect-ratio < 1) {
+  .blog {
+    display: block;
+  }
+  .blog .sidebar {
+    width: 72vw;
+    min-height: auto;
+  }
+
+  .blog .blogposts .blogpost-display {
+    width: 72vw;
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 6vh;
+  background-color: var(--middleground);
+}
+
+.footer-content {
+  margin: 0 0 0 25vw;
+  height: 100%;
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .copyright {
+  color: white;
+  font-weight: 480;
+}
+
+.footer .footer-github-icon {
+  transition: filter 0.3s;
+  border-radius: 50%;
+  height: max(1.5vw,3vh);
+  width: max(1.5vw,3vh);
+}
+
+.footer .footer-github-icon:hover {
+  filter: brightness(1.8);
+}
