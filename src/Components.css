@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Code Block */
+
+.codeblock {
+  border-radius: 30px;
+}
+
+.codeblock .tab-bar {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  position: relative;
+}
+
+
+.codeblock .tab-bar button .collapse-arrow {
+  transition: transform 0.2s;
+  transform: rotate(90deg);
+}
+
+.codeblock.collapsed .tab-bar button .collapse-arrow {
+  transform: rotate(0deg);
+}
+
+.codeblock .tab-bar .collapse-button {
+  background-color: var(--middleground);
+  z-index: 1;
+  padding: 1vh 0.5vw 0.6vh 0.7vw;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px 0 0 0;
+  position: sticky;
+  left: 0;
+  border-bottom-style: solid;
+  border-color: var(--middleground);
+  border-width: 1px;
+}
+
+.codeblock.collaped .tab-bar .collapse-button {
+  border-radius: 10px 0 0 10px;
+}
+
+.codeblock .tab-bar {
+  background-color: var(--middleground);
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  transition: border-radius 0s;
+}
+
+.codeblock.collapsed .tab-bar {
+  border-radius: 10px 10px;
+  transition: border-radius 0s linear 0.2s;
+}
+
+.codeblock .tab-bar .tab {
+  margin: 0 0.5vw 1px 0;
+}
+
+.codeblock .tab-bar .tab button {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.8vh 0.6vw;
+  font-size: 0.95rem;
+  font-family: Inter, Arial, sans-serif;
+}
+
+
+.codeblock .tab-bar .viewing {
+  margin: 0 0.5vw 0 0 ;
+  border-bottom-style: solid;
+  border-color: var(--foreground);
+  border-width: 1px;
+}
+
+.codeblock .code-container {
+  visibility: visible;
+  transition: visibility 0s;
+}
+
+.codeblock.collapsed .code-container {
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+
+/* Terminal Output */
+.terminal {
+  background: #101435;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  overflow-x: auto;
+  padding: 10px 15px;
+}
+
+/* File Download */
+.download-btn {
+  color: white;
+  display: flex;
+  background-color: var(--middleground);
+  border-color: #303455;
+  border-width: 2px;
+  border-radius: 10px;
+  border-style: solid;
+  padding: 2vh 20px;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none !important;
+}
+
+.download-btn .download-left-side {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+
+}
+
+.download-btn .download-left-side .filename {
+  color: white;
+  transition: color 0.3s;
+}
+
+.download-btn .download-left-side .file-icon {
+  color: white;
+  transition: color 0.3s;
+}
+
+.download-btn .download-icon {
+  color: white;
+  opacity: 70%
+}
+
+.download-btn:hover .download-left-side .filename {
+  color: var(--foreground);
+}
+
+.download-btn:hover .download-left-side .file-icon {
+  color: var(--foreground);
+}

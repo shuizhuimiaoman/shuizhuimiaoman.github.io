@@ -4,23 +4,40 @@ import profilepic from './assets/profile-pic.jpg';
 import githubicon from './assets/github-icon.png';
 import { MdCalendarToday } from "react-icons/md";
 import { MdSearch } from "react-icons/md";
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const blogposts = [
+  {
+    name: "BlahajCTF 2025 Writeups",
+    description: "Writeup for 5 hard-insane challenges",
+    url: "blahajctf-2025-writeups",
+    file: "BlahajCTF-2025.jsx",
+    tags: ["CTF","Crypto","Web","Pwn"],
+    date: "5 Mar 2026",
+  },
   {
     name: "Hello World",
     description: "About me",
     url: "hello-world",
+    file: "HelloWorld.jsx",
     tags: ["Yapping"],
     date: "1 Feb 2026",
-    content: "<p>Hi, I'm Water from Singapore! I've been playing CTFs since March 2024, and I mainly do crypto, although I enjoy the other categories as well, and play around with them in my free time!</p>                    <br></br>                    <p>Saying that I enjoy CTFs is frankly an understatement, I love them a ton. I play for a few teams, namely <a href='https://sekai.team' target='_blank'>Project Sekai</a>, <a href='https://ctf.mt' target='_blank'>Friendly Maltese Citizens</a> and <a href='https://ctftime.org/team/419122' target='_blank'>Crystallisers</a>.</p>                    <br></br>                    <p>I've been programming since I was 10, and hence other than CTFs and cybersecurity, I enjoy just about anything tech-related. Coding this blog was a blast and I'm really happy with how it turned out.</p>                    <br></br>                    <p>Outside of computing, I enjoy math (hence my maining of crypto), cubing and listening to music.</p>                    <br></br>                    <p>Feel free to check out my CTF writeups on my blog!</p>"
   },
 ];
+
+for (const blogpost of blogposts) {
+  const filename = blogpost.file
+  import(/* @vite-ignore */ `./blogposts/${filename}?raw`).then(output => {
+    blogpost.content = output.default
+  })
+}
 
 function Blogpost({name,description,url,tags,date}) {
   return (
     <>
       <div className='blogpost-display'>
-        <a href={`/#/${url}`}>
+        <Link to={`/${url}`}>
           <div className='header'>{name}</div>
             <div className='secondrow'>
             <div className='blogpost-display-tags'>
@@ -33,7 +50,7 @@ function Blogpost({name,description,url,tags,date}) {
             <MdCalendarToday size='1.3rem'/> <div className='date'>{date}</div>
             </div>
           <div className='description'>{description}</div>
-        </a>
+        </Link>
       </div>
     </>
   )
@@ -91,6 +108,15 @@ function Home() {
   return (
     <>
       <div className='homepage'>
+        <nav>
+          <div className='home'></div>
+          <div className='navbar'>
+            <ol className='navbar-sitelist'>
+              <li><Link to='/' style={{textDecoration:'underline', textUnderlineOffset: '8px', textDecorationThickness: '2px'}}>Home</Link></li>
+              <li><HashLink to="#blog">Posts</HashLink></li>
+            </ol>
+          </div>
+        </nav>
         <div className='introduction'>
           <div className='introduction-text'>
             <div className='introduction-title'>Hi, I'm <span className='highlight'>Water!</span></div>
@@ -100,7 +126,7 @@ function Home() {
           </div>
           <div><img className='profile-picture' src={profilepic}></img></div>
         </div>
-        <div className='blog'>
+        <div className='blog' id='blog'>
           <div className='sidebar'>
             <div className='searchbar'>
               <MdSearch size='1.5rem'/><input className='searchinput' placeholder='Search' onChange={(e) => setQuery(e.target.value)}></input>

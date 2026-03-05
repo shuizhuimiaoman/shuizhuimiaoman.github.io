@@ -2,15 +2,25 @@ import '../Blogposts.css'
 import githubicon from '../assets/github-icon.png';
 import { FaArrowLeft } from "react-icons/fa";
 import { MdCalendarToday } from "react-icons/md";
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 function HelloWorld() {
     return (
-        <>
+        <>  
+            <nav>
+                <div className='navbar'>
+                    <ol className='navbar-sitelist'>
+                        <li><Link to='/'>Home</Link></li>
+                        <li><HashLink to="/#blog">Posts</HashLink></li>
+                    </ol>
+                </div>
+            </nav>
             <div className='blogpost'>
                 <div className='home'>
-                    <a href='/#/'>
+                    <Link to={'/'}>
                         <FaArrowLeft size='1.1rem' className='left-arrow'/>Back to Home
-                    </a>
+                    </Link>
                 </div>
                 <div className='title'>Hello World</div>
                 <div className='subtitle'>
