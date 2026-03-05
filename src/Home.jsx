@@ -40,13 +40,13 @@ function Blogpost({name,description,url,tags,date}) {
         <Link to={`/${url}`}>
           <div className='header'>{name}</div>
             <div className='secondrow'>
-            <div className='blogpost-display-tags'>
+            {/* <div className='blogpost-display-tags'> */}
               {tags?.map(tag => (
                 <div key={tag} className="blogpost-display-tag">
                   {tag}
                 </div>
               ))}
-            </div>
+            {/* </div> */}
               <div className='blogpost-display-date'><MdCalendarToday size='1.3rem'/>{date}</div>
             </div>
           <div className='description'>{description}</div>

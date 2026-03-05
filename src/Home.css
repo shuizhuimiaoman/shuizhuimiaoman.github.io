@@ -183,7 +183,7 @@ nav .navbar .navbar-sitelist li a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   margin: 0.3vh 0 0 0;
 }
 
@@ -194,13 +194,7 @@ nav .navbar .navbar-sitelist li a:hover {
   gap: 6px;
 }
 
-.blogpost-display .secondrow .blogpost-display-tags {
-  display: flex;
-  gap: 8px;
-  margin: 0 0.5vw 0 0;
-}
-
-.blogpost-display .secondrow .blogpost-display-tags .blogpost-display-tag {
+.blogpost-display .secondrow .blogpost-display-tag {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 0.5vh 8px;

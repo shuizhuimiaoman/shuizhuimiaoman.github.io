@@ -107,18 +107,8 @@ code.code {
     font-size: 1.4rem !important;
     overflow-x: auto;
     overflow-y: hidden;
-    /* scrollbar-width: none; */
 } 
 
 .katex {
     font-size: 1.2rem !important;
-    word-break: break-all !important;
-    overflow-wrap: anywhere !important;
-    white-space: normal !important;
-}
-
-.katex .katex-html {
-    word-break: break-all !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
 }

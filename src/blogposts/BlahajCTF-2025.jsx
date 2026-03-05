@@ -1719,7 +1719,7 @@ b' ur_flag = blahaj{sandwich-f0rgery}\\n'
                 <br></br>
                 <p>As it turns out, this challenge is an easier version of boshis-lecret-sreasure. So, all I needed to do was to read the writeup to understand what was going on (which I already did prior), copy the solvescript, and remove the irrelevant parts. This was confirmed by the author to be an intended solve as well.</p>
                 <br></br>
-                <img src={blsOsint} style={{width: 'max(35vh,40vw)'}}></img>
+                <img src={blsOsint} style={{width: 'max(40vh,40vw)'}}></img>
                 <br></br>
                 <br></br>
                 <p>I believe I was the only participant to solve the challenge this way. Although I do wish I could've solved the challenge myself, which I definitely would have succeeded in. On the plus side, I earned more time to do the misc challenges (I had fully cleared crypto at this point).</p>
@@ -1733,7 +1733,7 @@ b' ur_flag = blahaj{sandwich-f0rgery}\\n'
                 
                 <h2 id='cats-revenge'>cats revenge</h2>
                 <p><i>looks like blahajctf attracted too much of the top 0.01% of cryptoers, so we had to make it harder :(</i></p>
-                <img style={{width: '30vw'}} src={catsRevenge}></img>
+                <img style={{width: 'max(30vh,30vw)'}} src={catsRevenge}></img>
                 <p>Author: azazo</p>
                 <br></br>
                 <h3>Foreword</h3>
