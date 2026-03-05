@@ -19,7 +19,7 @@
 }
 
 
-.codeblock .tab-bar button .collapse-arrow {
+.codeblock .tab-bar .collapse-button .collapse-arrow {
   transition: transform 0.2s;
   transform: rotate(90deg);
 }
@@ -31,7 +31,7 @@
 .codeblock .tab-bar .collapse-button {
   background-color: var(--middleground);
   z-index: 1;
-  padding: 1vh 0.5vw 0.6vh 0.7vw;
+  padding: 1vh 8px 0.6vh 11px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -41,6 +41,7 @@
   border-bottom-style: solid;
   border-color: var(--middleground);
   border-width: 1px;
+  color: white !important;
 }
 
 .codeblock.collaped .tab-bar .collapse-button {
@@ -72,6 +73,7 @@
   padding: 0.8vh 0.6vw;
   font-size: 0.95rem;
   font-family: Inter, Arial, sans-serif;
+  color: white !important;
 }
 
 
@@ -111,7 +113,7 @@
   border-width: 2px;
   border-radius: 10px;
   border-style: solid;
-  padding: 2vh 20px;
+  padding: 2vh 18px;
   align-items: center;
   justify-content: space-between;
   text-decoration: none !important;
@@ -120,7 +122,7 @@
 .download-btn .download-left-side {
   display: flex;
   align-items: center;
-  gap: 2vw;
+  gap: 18px;
 
 }
 

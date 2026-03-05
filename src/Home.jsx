@@ -47,7 +47,7 @@ function Blogpost({name,description,url,tags,date}) {
                 </div>
               ))}
             </div>
-            <MdCalendarToday size='1.3rem'/> <div className='date'>{date}</div>
+              <div className='blogpost-display-date'><MdCalendarToday size='1.3rem'/>{date}</div>
             </div>
           <div className='description'>{description}</div>
         </Link>

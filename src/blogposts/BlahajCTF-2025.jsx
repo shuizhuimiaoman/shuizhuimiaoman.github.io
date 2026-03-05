@@ -26,12 +26,12 @@ function BlahajCTF2025Writeups() {
             <div className='blogpost'>
                 <div className='home'>
                     <Link to={'/'}>
-                        <FaArrowLeft size='1.1rem' className='left-arrow'/>Back to Home
+                        <FaArrowLeft size='1.05rem' className='left-arrow'/>Back to Home
                     </Link>
                 </div>
                 <div className='title'>BlahajCTF 2025 Writeups</div>
                 <div className='subtitle'>
-                    <div className='date'><MdCalendarToday size='1.4rem'/>5 Mar 2026</div>
+                    <div className='blogpost-page-date'><MdCalendarToday size='1.4rem'/>5 Mar 2026</div>
                     <div className='blogpost-tags'>
                         <div className='blogpost-tag'>CTF</div>
                         <div className='blogpost-tag'>Crypto</div>
@@ -41,18 +41,18 @@ function BlahajCTF2025Writeups() {
                 </div>
                 <div className='content'>
                     <h1>Contents</h1>
-                    <ol style={{paddingLeft:'2vw'}}>
+                    <ol style={{paddingLeft:'1.8rem'}}>
                         <li><HashLink to="#foreword">Foreword</HashLink></li>
                         <li><HashLink to="#pwn">Pwn</HashLink></li>
-                        <ol style={{paddingLeft:'2vw'}}>
+                        <ol style={{paddingLeft:'1.8rem'}}>
                             <li><HashLink to="#python-pwn">Python Pwn</HashLink></li>
                         </ol>
                         <li><HashLink to="#web">Web</HashLink></li>
-                        <ol style={{paddingLeft:'2vw'}}>
+                        <ol style={{paddingLeft:'1.8rem'}}>
                             <li><HashLink to="#scriptures">Scriptures</HashLink></li>
                         </ol>
                         <li><HashLink to="#crypto">Crypto</HashLink></li>
-                        <ol style={{paddingLeft:'2vw'}}>
+                        <ol style={{paddingLeft:'1.8rem'}}>
                             <li><HashLink to="#baconlettucesalami">baconlettucesalami</HashLink></li>
                             <li><HashLink to="#cats-revenge">cats revenge</HashLink></li>
                             <li><HashLink to="#roblox">roblox</HashLink></li>
@@ -293,7 +293,7 @@ PyMODINIT_FUNC PyInit_my_arrays(void) {
                     <p>Also, a tip: you can install  <code className='code'>libc6-dbg</code> package to get debugging symbol with your libc in the docker image.</p>
                     <br></br>
                     <p>The readme is pretty self-explanatory. We can get a shell in the docker container by running <code className='code'>docker run --rm -it &lt;image-name&gt; sh</code>. With that being said, I did not need debug symbols on my libc, but instead on the python executable, so that I could display CPython object fields. Below are some steps to compile python with debug symbols:</p>
-                    <ol style={{paddingLeft:'2vw'}}>
+                    <ol style={{paddingLeft:'1.8rem'}}>
                         <li>Download the Gzipped source tarball file from the python installation. The installation for python 3.11.2 can be found <a href='https://www.python.org/downloads/release/python-3112/'>here</a>.</li>
                         <li>Untar the file using <code className='code'>tar -xf Python3.11.2.tgz</code> and <code className='code'>cd</code> into the new directory.</li>
                         <li>Run <code className='code'>./configure --with-pydebug --prefix=/directory/you/want/to/install/python/in</code>. I would recommend creating a new directory to install python in as there are many files that will be installed.</li>
@@ -1306,7 +1306,7 @@ def submit_scripture():
                 <br></br>
                 <br></br>
                 <p>This reveals two things:</p>
-                <ol style={{paddingLeft:'2vw'}}>
+                <ol style={{paddingLeft:'1.8rem'}}>
                     <li>We are meant to exfiltrate the PDF from the iframe (or in this case embed) and not by bypassing sec-fetch</li>
                     <li>We need to read the source of the Chromium equivalent of <code className='code'>pdf.js</code>, which is the Chromium pdf viewer</li>
                 </ol>
@@ -2108,7 +2108,7 @@ if __name__ == "__main__":
     return rks`}]}></CodeBlock>
                 <br></br>
                 <p>We can make 3 observations.</p>
-                <ol style={{paddingLeft:'2vw'}}>
+                <ol style={{paddingLeft:'1.8rem'}}>
                     <li>For every round, the 1st round key is the same as the 3rd round key (0-indexed)</li>
                     <li>The key scheduling algorithm is entirely reversible</li>
                     <li>Each round key is scheduled independently of the others i.e. recovering the first round key in any particular round grants you the first round key for every round, and so on</li>
@@ -2144,7 +2144,7 @@ def encrypt_fault(pt: bytes, key: bytes, fault_round: int, word_idx: int) -> byt
     return b"".join(int(w).to_bytes(SZ // 8, "little") for w in state)`}]}></CodeBlock>
                 <br></br>
                 <p>Before I proceed, there are two things of note:</p>
-                <ol style={{paddingLeft:'2vw'}}>
+                <ol style={{paddingLeft:'1.8rem'}}>
                     <li><code className='code'>rol</code> and <code className='code'>ror</code>, which are used in encryption rounds, are reversible. So, when we are doing arithmetic on state values, it is assumed that the inverse of <code className='code'>rol</code> or <code className='code'>ror</code> (whichever is called on the state) is already carried out.</li>
                     <li>At the end of almost every operation, there is an <code className='code'>& WORD</code>. Since WORD in binary is entirely 1s, the & can be treated as a modulus (mod WORD+1). Hence, it is implicit that whenever there is an <code className='code'>& WORD</code>, we are working modulo WORD+1.</li>
                 </ol>

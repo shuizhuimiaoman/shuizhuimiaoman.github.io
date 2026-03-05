@@ -8,6 +8,10 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  scroll-margin-top: 8vh;
+}
+
 .homepage {
   min-height: 94vh;
 }
@@ -69,6 +73,16 @@ nav .navbar .navbar-sitelist li a:hover {
   font-size: 1.2rem;
   font-weight: 480;
   text-align: justify;
+}
+
+@media (aspect-ratio < 0.8) {
+  .introduction-title {
+    font-weight: 600;
+    font-size: 3rem;
+  }
+  .introduction-content {
+    font-size: 1.05rem;
+  }
 }
 
 .introduction-content a {
@@ -154,20 +168,30 @@ nav .navbar .navbar-sitelist li a:hover {
   font-size: 2rem;
 }
 
+@media (aspect-ratio < 1.2) {
+  .blogpost-display .header {
+    font-size: 1.8rem;
+  }
+}
+
 .blogpost-display .description {
   margin: 2vh 0 0 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .blogpost-display .secondrow {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5px;
   margin: 0.3vh 0 0 0;
 }
 
-.blogpost-display .secondrow .date {
-  font-size: 0.9rem;
+.blogpost-display .secondrow .blogpost-display-date {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 6px;
 }
 
 .blogpost-display .secondrow .blogpost-display-tags {
@@ -206,7 +230,7 @@ nav .navbar .navbar-sitelist li a:hover {
 
 .blog .sidebar .searchbar {
   border-radius: 10px;
-  padding: 0 0.5vw 0 0.5vw;
+  padding: 0 7px 0 7px;
   background-color: #303455;
   width: 100%;
   display: flex;
@@ -240,20 +264,21 @@ nav .navbar .navbar-sitelist li a:hover {
 
 .sidebar-tags {
   display: flex;
-  gap: 0.5vw;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .sidebar-tag {
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.7vh 0.5vw;
+  padding: 0.7vh 8px;
   background-color: #263055;
   border-color: #303455;
   border-width: 2px;
   border-radius: 10px;
   border-style: solid;
   transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+  color: white !important;
 }
 
 .sidebar-tag:hover {
@@ -262,7 +287,7 @@ nav .navbar .navbar-sitelist li a:hover {
 }
 
 .sidebar-tag.selected {
-  color: var(--foreground);
+  color: var(--foreground) !important;
   border-color: var(--foreground);
 }
 
@@ -279,6 +304,7 @@ nav .navbar .navbar-sitelist li a:hover {
   .blog .sidebar {
     width: 72vw;
     min-height: auto;
+    padding: 2vh 25px;
   }
 
   .blog .blogposts .blogpost-display {

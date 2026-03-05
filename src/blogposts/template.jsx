@@ -24,7 +24,7 @@ function template() {
                 </div>
                 <div className='title'>Title</div>
                 <div className='subtitle'>
-                    <div className='date'><MdCalendarToday size='1.4rem'/>1 Feb 2026</div>
+                    <div className='blogpost-page-date'><MdCalendarToday size='1.4rem'/>1 Feb 2026</div>
                     <div className='blogpost-tags'>
                         <div className='blogpost-tag'>Tag</div>
                     </div>
