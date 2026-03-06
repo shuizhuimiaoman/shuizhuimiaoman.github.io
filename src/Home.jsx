@@ -40,13 +40,11 @@ function Blogpost({name,description,url,tags,date}) {
         <Link to={`/${url}`}>
           <div className='header'>{name}</div>
             <div className='secondrow'>
-            {/* <div className='blogpost-display-tags'> */}
               {tags?.map(tag => (
                 <div key={tag} className="blogpost-display-tag">
                   {tag}
                 </div>
               ))}
-            {/* </div> */}
               <div className='blogpost-display-date'><MdCalendarToday size='1.3rem'/>{date}</div>
             </div>
           <div className='description'>{description}</div>
@@ -122,7 +120,7 @@ function Home() {
             <div className='introduction-title'>Hi, I'm <span className='highlight'>Water!</span></div>
             <div className='introduction-content'>I'm a CTF player from Singapore. I play for the teams <a href='https://sekai.team' target="_blank">Project Sekai</a>, <a href='https://ctf.mt' target="_blank">Friendly Maltese Citizens</a> and <a href='https://ctftime.org/team/419122' target="_blank">Crystallisers</a>. I mainly do cryptography, but I occasionally try my hand at the other categories as well.</div>
             <div className='introduction-content'>Feel free to check out my blog below, where I post CTF writeups and others!</div>
-            <div><a href = "https://www.github.com/shuizhuimiaoman"><img className = "introduction-github-icon" src={githubicon} alt="Github Icon"></img></a></div>
+            <div><a href = "https://www.github.com/shuizhuimiaoman" target='_blank'><img className = "introduction-github-icon" src={githubicon} alt="Github Icon"></img></a></div>
           </div>
           <div><img className='profile-picture' src={profilepic}></img></div>
         </div>
@@ -161,7 +159,7 @@ function Home() {
           <div className='footer-content'>
             <div className='copyright'>© 2026 Water</div>
             <div className='github-link'>
-              <a href = "https://www.github.com/shuizhuimiaoman">
+              <a href = "https://www.github.com/shuizhuimiaoman" target='_blank'>
                 <img className = "footer-github-icon" src={githubicon} alt="Github Icon"></img>
               </a>
             </div>

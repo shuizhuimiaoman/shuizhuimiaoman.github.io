@@ -19,7 +19,7 @@ function HelloWorld() {
             <div className='blogpost'>
                 <div className='home'>
                     <Link to={'/'}>
-                        <FaArrowLeft size='1.1rem' className='left-arrow'/>Back to Home
+                        <FaArrowLeft size='1.05rem' className='left-arrow'/>Back to Home
                     </Link>
                 </div>
                 <div className='title'>Hello World</div>
@@ -45,7 +45,7 @@ function HelloWorld() {
                 <div className='footer-content'>
                     <div className='copyright'>© 2026 Water</div>
                     <div className='github-link'>
-                        <a href = "https://www.github.com/shuizhuimiaoman">
+                        <a href = "https://www.github.com/shuizhuimiaoman" target='_blank'>
                         <img className = "footer-github-icon" src={githubicon} alt="Github Icon"></img>
                         </a>
                     </div>

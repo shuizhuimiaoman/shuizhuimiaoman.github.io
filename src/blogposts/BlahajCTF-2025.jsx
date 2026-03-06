@@ -294,7 +294,7 @@ PyMODINIT_FUNC PyInit_my_arrays(void) {
                     <br></br>
                     <p>The readme is pretty self-explanatory. We can get a shell in the docker container by running <code className='code'>docker run --rm -it &lt;image-name&gt; sh</code>. With that being said, I did not need debug symbols on my libc, but instead on the python executable, so that I could display CPython object fields. Below are some steps to compile python with debug symbols:</p>
                     <ol style={{paddingLeft:'1.8rem'}}>
-                        <li>Download the Gzipped source tarball file from the python installation. The installation for python 3.11.2 can be found <a href='https://www.python.org/downloads/release/python-3112/'>here</a>.</li>
+                        <li>Download the Gzipped source tarball file from the python installation. The installation for python 3.11.2 can be found <a href='https://www.python.org/downloads/release/python-3112/' target='_blank'>here</a>.</li>
                         <li>Untar the file using <code className='code'>tar -xf Python3.11.2.tgz</code> and <code className='code'>cd</code> into the new directory.</li>
                         <li>Run <code className='code'>./configure --with-pydebug --prefix=/directory/you/want/to/install/python/in</code>. I would recommend creating a new directory to install python in as there are many files that will be installed.</li>
                         <li>Run <code className='code'>make install</code>.</li>
@@ -401,7 +401,7 @@ $7 = {
                     <br></br>
                     <p><code className='code'>ob_item</code> is a pointer to the external buffer of the list, which is stored in a different region of memory (but still in the heap). As lists are mutable, the contents are stored in an external buffer instead of in the list objects themselves.</p>
                     <br></br>
-                    <p><code className='code'>allocated</code> is the number of qwords that are allocated for the list buffer. When defined, <code className='code'>ob_size</code> qwords are initially allocated. When any operation that increases the length of the list is called, this is the allocation formula: <code className='code'>{'new_allocated = (newsize + (newsize >> 3) + 6) & ~3'}</code>, where <code className='code'>newsize</code> is the new number of elements in the list, and arithmetic takes place in <code className='code'>size_t</code> i.e. 64-bit unsigned integers. This formula can be found in the python source code <a href='https://github.com/python/cpython/blob/5ea9010e8910cb97555c3aef4ed95cca93a74aab/Objects/listobject.c#L132'>here</a>.</p>
+                    <p><code className='code'>allocated</code> is the number of qwords that are allocated for the list buffer. When defined, <code className='code'>ob_size</code> qwords are initially allocated. When any operation that increases the length of the list is called, this is the allocation formula: <code className='code'>{'new_allocated = (newsize + (newsize >> 3) + 6) & ~3'}</code>, where <code className='code'>newsize</code> is the new number of elements in the list, and arithmetic takes place in <code className='code'>size_t</code> i.e. 64-bit unsigned integers. This formula can be found in the python source code <a href='https://github.com/python/cpython/blob/5ea9010e8910cb97555c3aef4ed95cca93a74aab/Objects/listobject.c#L132' target='_blank'>here</a>.</p>
                     <br></br>
                     <p>Let's take a look at the list buffer.</p>
                     <br></br>
@@ -451,7 +451,7 @@ $8 = {
   ob_exports = 0x0
 }`}></Terminal>
                     <br></br>
-                    <p>Again, <code className='code'>PyByteArrayObject</code> has a <code className='code'>PyVarObject</code> header, and as it is mutable, it uses an external buffer that is stored in a different section of the heap, similarly to lists. However, the reallocation formula is slightly different. Since it does not concern us, I will not elaborate much. Feel free to read up about it <a href='https://github.com/python/cpython/blob/main/Objects/bytearrayobject.c#L211'>here</a> if you're interested.</p>
+                    <p>Again, <code className='code'>PyByteArrayObject</code> has a <code className='code'>PyVarObject</code> header, and as it is mutable, it uses an external buffer that is stored in a different section of the heap, similarly to lists. However, the reallocation formula is slightly different. Since it does not concern us, I will not elaborate much. Feel free to read up about it <a href='https://github.com/python/cpython/blob/main/Objects/bytearrayobject.c#L211' target='_blank'>here</a> if you're interested.</p>
                     <br></br>
                     <p><code className='code'>ob_alloc</code> is the same as <code className='code'>PyListObject</code>'s <code className='code'>allocated</code>.</p>
                     <br></br>
@@ -675,7 +675,7 @@ $1 = {
   tp_vectorcall = 0x5555556f88f7 <list_vectorcall>
 }`}></Terminal>
                     <br></br>
-                    <p>There are a lot of pointers in the vtable, and <a href='https://docs.python.org/3/c-api/typeobj.html'>this page</a> in the python documentation is great for finding out when they are called. I chose to overwrite <code className='code'>tp_str</code>, which is called when <code className='code'>str()</code> is called on the list.</p>
+                    <p>There are a lot of pointers in the vtable, and <a href='https://docs.python.org/3/c-api/typeobj.html' target='_blank'>this page</a> in the python documentation is great for finding out when they are called. I chose to overwrite <code className='code'>tp_str</code>, which is called when <code className='code'>str()</code> is called on the list.</p>
                     <br></br>
                     <p>This is analogous to a GOT overwrite, and I overwrote the vtable entry with the address of <code className='code'>system</code> by getting a libc leak with the same method as before. We can get the address of the <code className='code'>PyList_Type</code> vtable by finding the address of the <code className='code'>list</code> object in memory.</p>
                     <br></br>
@@ -1601,7 +1601,7 @@ while True:
             PK[-1] = pk_C`}]}></CodeBlock>
                 <br></br>
                 <p>We can submit any point of the curve, and this public key is the one that gets used for verification. Now let's look at the key verification equation. It checks the following:</p>
-                <BlockMath math="e(sum(\Sigma),\phi(G2))=e(H(m),\phi(sum(PK))" />
+                <BlockMath math="e(sum(\Sigma),\phi(G2))=e(H(m),\phi(sum(PK)))" />
                 <p>We have the value of PK, as the BLS aggregate signature scheme is an asymmetric signature scheme, meaning the public keys are given to everyone to allow them to verify signatures. This means that we can forge <InlineMath math="sum(PK)"/> by submitting</p>
                 <BlockMath math="PK_C:=sum(PK)_{target}-PK_A-PK_B" />
                 <p>Additionally, if <InlineMath math="len(\Sigma) = len(PK) = 1"/>, the BLS aggregate signature scheme turns into the BLS signature scheme, so the signing and verification will work the same way.</p>
@@ -1715,7 +1715,7 @@ b' ur_flag = blahaj{sandwich-f0rgery}\\n'
                 <h3>OSINT</h3>
                 <p>In the foreword, I stated that my solve was funny. While I did <i>technically</i> solve this challenge with the intended method, my solution was definitely funny.</p>
                 <br></br>
-                <p>While skimming through writeups before the CTF, I came across the challenge author (Warri)'s writeups for MaltaCTF 2025. There was this challenge he set, called <i>boshis-lecret-sreasure</i> (link to writeup <a href='https://github.com/Warriii/CTF-Writeups/blob/main/malta25/finals/crypto_boshis_lecret_sreasure.md'>here</a>). I think you can see where this is going.</p>
+                <p>While skimming through writeups before the CTF, I came across the challenge author (Warri)'s writeups for MaltaCTF 2025. There was this challenge he set, called <i>boshis-lecret-sreasure</i> (link to writeup <a href='https://github.com/Warriii/CTF-Writeups/blob/main/malta25/finals/crypto_boshis_lecret_sreasure.md' target='_blank'>here</a>). I think you can see where this is going.</p>
                 <br></br>
                 <p>As it turns out, this challenge is an easier version of boshis-lecret-sreasure. So, all I needed to do was to read the writeup to understand what was going on (which I already did prior), copy the solvescript, and remove the irrelevant parts. This was confirmed by the author to be an intended solve as well.</p>
                 <br></br>
@@ -2259,7 +2259,7 @@ def encrypt_fault(pt: bytes, key: bytes, fault_round: int, word_idx: int) -> byt
                 x_{2,11}&=(x_{0,9}\oplus rk_{0,10}) + (x_{1,9}\oplus rk_{1,10})\\
                 x_{1,10}&=(x_{1,9}\oplus rk_{2,10}) - (x_{2,9}\oplus rk_{1,10})\\
                 \end{align*}"/>
-                <p>The first and last equations are irrelevant here. As for the other two equations, when we inject a fault into <code className='code'>x0</code> right before the second last round, by taking the difference of multiple occurences of each equation, we can the following two equations:</p>
+                <p>The first and last equations are irrelevant here. As for the other two equations, when we inject a fault into <code className='code'>x0</code> right before the second last round, by taking the difference of multiple occurences of each equation, we get the following two equations:</p>
                 <BlockMath math="\begin{align*}
                 x_{1,11}-x_{1,11}'&=(x_{0,9}'\oplus rk_{1,11}) - (x_{0,9}\oplus rk_{1,11})\\
                 x_{2,11}-x_{2,11}'&=(x_{0,9}\oplus rk_{0,10}) - (x_{0,9}'\oplus rk_{0,10})\\
@@ -2597,7 +2597,7 @@ Total time taken: 2 min 52 sec
                 <div className='footer-content'>
                     <div className='copyright'>© 2026 Water</div>
                     <div className='github-link'>
-                        <a href = "https://www.github.com/shuizhuimiaoman">
+                        <a href = "https://www.github.com/shuizhuimiaoman" target='_blank'>
                             <img className = "footer-github-icon" src={githubicon} alt="Github Icon"></img>
                         </a>
                     </div>

@@ -24,28 +24,35 @@ nav {
   top: 0;
 }
 
-
-@media (aspect-ratio < 1.2) {
-  .nav .navbar {
-    padding: 1vh 15vw;
-  }
-}
-
 nav .navbar {
   width: 100%;
-  padding: 1.4vh 26vw;
+  padding: 0 26vw;
   background-color: var(--background);
+}
+
+@media (aspect-ratio < 1.3) {
+  nav .navbar {
+    padding: 0 17vw;
+  }
 }
 
 nav .navbar .navbar-sitelist {
   display: flex;
+  justify-content: space-between;
+}
+
+nav .navbar .navbar-sitelist li {
+  height: 5vh;
+  display: flex;
   list-style-type: none;
   justify-content: space-between;
+  align-items: center;
 }
 
 nav .navbar .navbar-sitelist li a {
   font-size: 1.2rem;
   font-weight: 400;
+  text-align: center;
 }
 
 nav .navbar .navbar-sitelist li a:hover {
