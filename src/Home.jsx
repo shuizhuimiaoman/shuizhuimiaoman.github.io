@@ -11,7 +11,7 @@ const blogposts = [
   {
     name: "SekaiCTF 2026 Author Writeup",
     description: "Writeup for crypto/orbital-strike",
-    url: "sekaictf-2026-author-writeups",
+    url: "sekaictf-2026-author-writeup",
     file: "SekaiCTF-2026.jsx",
     tags: ["CTF","Crypto"],
     date: "1 July 2026",
