@@ -26,7 +26,7 @@ function SekaiCTF2026AuthorWriteups() {
                         <FaArrowLeft size='1.05rem' className='left-arrow'/>Back to Home
                     </Link>
                 </div>
-                <div className='title'>Title</div>
+                <div className='title'>SekaiCTF 2026 Author Writeup</div>
                 <div className='subtitle'>
                     <div className='blogpost-page-date'><MdCalendarToday size='1.4rem'/>1 July 2026</div>
                     <div className='blogpost-tags'>
