@@ -1,5 +1,6 @@
 import '../Blogposts.css'
 import githubicon from '../assets/github-icon.png';
+import { HashLink } from 'react-router-hash-link';
 import { FaArrowLeft } from "react-icons/fa";
 import { MdCalendarToday } from "react-icons/md";
 import { Link } from 'react-router-dom';
