@@ -131,11 +131,11 @@ star = '1664ff83cbca2643b357bcdc8c3d6e1548615a18cec73e734a82e163b32a9b0c367c61ba
 		    <br></br>
 		    <p>Stern's Attack first assumes that <InlineMath math='\mathbf{x}'/> forms a geometric series modulo <InlineMath math='p'/>.</p>
 		    <br></br>
-		    <p>Next, Stern's Attack states that if a lattice that is orthogonal to some "slices" of <InlineMath math = 'y'/> (e.g. orthogonal to both <InlineMath math = '\mathbf{y}_{:-1}'/> and <InlineMath math = '\mathbf{y}_{1:}'/>), a sublattice of it is also orthogonal to corresponding "slices" (i.e. same slice indices) <InlineMath math = '\mathbf{x}'/>. What this means is that if we get a basis of vectors that are orthogonal to <InlineMath math = '\mathbf{y}'/>, some of the basis vectors will be orthogonal to <InlineMath math = '\mathbf{x}'/>.</p>
+		    <p>Next, Stern's Attack states that if a lattice that is orthogonal to some "slices" of <InlineMath math = '\mathbf{y}'/> (e.g. orthogonal to both <InlineMath math = '\mathbf{y}_{:-1}'/> and <InlineMath math = '\mathbf{y}_{1:}'/>), a sublattice of it is also orthogonal to corresponding "slices" (i.e. same slice indices) of <InlineMath math = '\mathbf{x}'/>. What this means is that if we get a basis of vectors that are orthogonal to <InlineMath math = '\mathbf{y}'/>, some of the basis vectors will be orthogonal to <InlineMath math = '\mathbf{x}'/>.</p>
 		    <br></br>
 		    <p>As for the precise indices of the "slices" (e.g. whether we should use <InlineMath math = '\mathbf{y}_{:-1}'/> and <InlineMath math = '\mathbf{y}_{1:}'/> or <InlineMath math = '\mathbf{y}_{:-2}'/>, <InlineMath math = '\mathbf{y}_{1:-1}'/> and <InlineMath math = '\mathbf{y}_{2:}'/>), I defer the calculations to the many papers online. However, for the purpose of CTFs, we can just trial and error until we find parameters that give the highest number of orthogonal basis vectors.</p>
 		    <br></br>
-		    <p>As it turns out, we can generalise Stern's Attack to a higher number of vectors. From this point, I will reuse variables from the previous paragraphs. Like before, let <InlineMath math='\mathbf{x}'/> form a geometric series modulo <InlineMath math='p'/>, let <InlineMath math = 'A'/>, <InlineMath math = 'b'/>, etc. be arbitrary integers, and let <InlineMath math='\mathbf{a}'/>,  <InlineMath math='\mathbf{b}'/>, etc. be arbitrary vectors.</p>
+		    <p>As it turns out, we can generalise Stern's Attack to a higher number of vectors. From this point, I will reuse variables from the previous paragraphs. Like before, let <InlineMath math='\mathbf{x}'/> form a geometric series modulo <InlineMath math='p'/>, let <InlineMath math = 'A'/>, <InlineMath math = 'B'/>, etc. be arbitrary integers, and let <InlineMath math='\mathbf{a}'/>,  <InlineMath math='\mathbf{b}'/>, etc. be arbitrary vectors.</p>
 		    <br></br>
 		    <p>Assume <InlineMath math ='\mathbf{x} = A\mathbf{a}+B\mathbf{b} + ...'/>. If a lattice is orthogonal to "slices" of all but one vectors among <InlineMath math='\mathbf{a,b,...}'/>, similarly to Stern's Attack, a sublattice will be orthogonal to <InlineMath math='\mathbf{x}'/>, so we can apply Stern's Attack here. We can look back at the challenge equations and we realise that this is exactly the case, so we can apply Stern's Attack.</p>
 		    <br></br>
@@ -147,21 +147,21 @@ star = '1664ff83cbca2643b357bcdc8c3d6e1548615a18cec73e734a82e163b32a9b0c367c61ba
 		    \mathbf{v} \cdot \mathbf{x} &= 0 \\
 		    \sum_{i=1}^n v_ix_i &= 0 \\
 		    \sum_{i=1}^n v_ia^ix_i &\equiv 0 \pmod{p} \\\\
-		    \text{Assume }x &\not\equiv 0 \pmod{p} \\
+		    \text{Assume }x_i &\not\equiv 0 \pmod{p} \\
 		    \sum_{i=1}^n v_ia^i &\equiv 0 \pmod{p} \\
 		    \end{align*}'/>
 		    <p>Since we know <InlineMath math='\mathbf{v}'/>, we have a polynomial that has has <InlineMath math='a'/> as a root modulo <InlineMath math = 'p'/>. Hence, we can take 3 such polynomials and get two separate resultants, which will both be multiples of <InlineMath math = 'p'/>. Afterwards we can take their gcd to get a small multiple of <InlineMath math = 'p'/>. After we recover <InlineMath math = 'p'/>, we can get the gcd of all 3 polynomials and solve them to get <InlineMath math = 'a'/>.</p>
 		    <br></br>
 		    <h2>Recovering moons</h2>
-		    <p>Unfortunately, the values of <code className='code'>moons</code>, or more specifically the consecutive differences <InlineMath math = 'x'/>, are too large for us to directly recover by finding orthogonal vectors to our current orthogonal vectors. Hence, we need to use some additional constraints that we know of, in order to recover <InlineMath math = 'x'/>.</p>
+		    <p>Unfortunately, the values of <code className='code'>moons</code>, or more specifically the consecutive differences <InlineMath math = '\mathbf{x}'/>, are too large for us to directly recover by finding orthogonal vectors to our current orthogonal vectors. Hence, we need to use some additional constraints that we know of, in order to recover <InlineMath math = '\mathbf{x}'/>.</p>
 		    <br></br>
 		    <p>We have two additional constraints we can make use of:</p>
                     <ol style={{paddingLeft:'1.8rem'}}>
-			<li>The vectors we have that are orthogonal to <InlineMath math = 'x'/> are orthogonal to "slices" of <InlineMath math = 'x'/>.</li>
-			<li><InlineMath math = 'x'/> forms a geometric series modulo <InlineMath math = 'p'/>.</li>
+			<li>The vectors we have that are orthogonal to <InlineMath math = '\mathbf{x}'/> are orthogonal to "slices" of <InlineMath math = '\mathbf{x}'/>.</li>
+			<li><InlineMath math = '\mathbf{x}'/> forms a geometric series modulo <InlineMath math = 'p'/>.</li>
 		    </ol>
 		    <br></br>
-		    <p>We will first make use of first constraint. Let the <InlineMath math = 'j'/>th entry of the <InlineMath math = 'i'/>th orthogonal vector be of the form <InlineMath math = 'v_{ij}'/>. Consider the following matrix:</p>
+		    <p>We will first make use of the first constraint. Let the <InlineMath math = 'j'/>th entry of the <InlineMath math = 'i'/>th orthogonal vector be of the form <InlineMath math = 'v_{ij}'/>. Consider the following matrix:</p>
 		    <BlockMath math = '
 		    M=
 		    \begin{bmatrix}
@@ -174,7 +174,7 @@ star = '1664ff83cbca2643b357bcdc8c3d6e1548615a18cec73e734a82e163b32a9b0c367c61ba
 		    '/>
 		    <p>By finding a basis orthogonal to <InlineMath math='M'/>, we get a basis <InlineMath math='B'/> for <InlineMath math = '\mathbf{y}'/>, i.e. there exists some vector <InlineMath math = '\mathbf{u}'/> such that <InlineMath math = '\mathbf{u}B = \mathbf{y}'/>.</p>
 		    <br></br>
-		    <p>We can thus make use of the second constraint to find <InlineMath math = '\mathbf{u}'/>. Cosndier the following vector <InlineMath math = '\mathbf{w}'/> and matrix <InlineMath math = '\mathbf{M}'/>:</p>
+		    <p>We can thus make use of the second constraint to find <InlineMath math = '\mathbf{u}'/>. Consider the following vector <InlineMath math = '\mathbf{w}'/> and matrix <InlineMath math = 'M'/>:</p>
 		    <BlockMath math = '
 		    \mathbf{w} =
 		    \begin{bmatrix}
@@ -186,19 +186,19 @@ star = '1664ff83cbca2643b357bcdc8c3d6e1548615a18cec73e734a82e163b32a9b0c367c61ba
 		    \mathbf{w}
 		    \end{bmatrix}
 		    '/>
-		    <p>We notice that <InlineMath math = '\begin{bmatrix} \mathbf{u} & x_0 \end{bmatrix}'/> is orthogonal to this matrix modulo <InlineMath math = 'p'/>. Hence, we can find said vector by finding a basis orthogonal (this basis in question only has one vector) one last time. Since the elements of the vector are far below <InlineMath math = 'p'/> (bit length about half that of <InlineMath math = 'p'/>), If a vector is near <InlineMath math = 'p'/>, we can deduce that it is a negative number.</p>
+		    <p>We notice that the vector <InlineMath math = '\begin{bmatrix} \mathbf{u} & x_0 \end{bmatrix}'/> is orthogonal to this matrix modulo <InlineMath math = 'p'/>. Hence, we can find said vector by finding a basis orthogonal (this basis in question only has one vector) one last time. Additionally, since the elements of the vector are far below <InlineMath math = 'p'/> (bit length about half that of <InlineMath math = 'p'/>), if a vector is near <InlineMath math = 'p'/>, we can deduce that it is a negative number.</p>
 		    <br></br>
 		    <p>One more thing to note is that because we find orthogonal vectors with LLL, <code className='code'>B.solve_left(y)[-1] == B.solve_left(x)[-1] == +- 1</code>. Additionally, when we find the last orthogonal basis (i.e. when finding <InlineMath math = '\mathbf{u}'/>), the <b>first</b> entry is always equal to <InlineMath math = '1'/> (never <InlineMath math = '-1'/>). I'm not sure why LLL does this, but we can just accept it as a fact and manage our indices/polarity properly.</p>
 		    <br></br>
 		    <h2>Recovering A, P and the flag</h2>
-		    <p>After we recover <InlineMath math = 'x'/>, the hard part is over. We now have enough information to recover A and P. This is analogous to regular LCG parameter recovery.</p>
+		    <p>After we recover <InlineMath math = '\mathbf{x}'/>, the hard part is over. We now have enough information to recover A and P. This is analogous to regular LCG parameter recovery.</p>
 		    <BlockMath math = '\begin{align*}
 		    y_{i+1} &\equiv Ay_i+x_i \pmod{P} \\
 		    \frac{y_1-x_0}{y_0} &\equiv A \pmod{P} \\
 		    &\equiv \frac{y_2-x_1}{y_1} \pmod{P} \\
 		    y_1(y_1-x_0)-y_0(y_2-x_1) &\equiv 0 \pmod{P}
 		    \end{align*}'/>
-		    <p>We can increment the respective <InlineMath math = 'i'/> values by one to find one more value that is zero modulo <InlineMath math = 'P'/>, then take their gcd to get a small multiple of <InlineMath math = 'P'/>. Afterwards we can solve the first equation above to get <InlineMath math = 'A'/>. Afterwards we just need to clock back the state, see the below equations:</p>
+		    <p>We can increment <InlineMath math = 'i'/> by one to find one more value that is zero modulo <InlineMath math = 'P'/>, then take their gcd to get a small multiple of <InlineMath math = 'P'/>. Afterwards, we can solve the first equation above to get <InlineMath math = 'A'/>. Finally, we just need to clock back the state, see the below equations:</p>
 		    <BlockMath math = '\begin{align*}
 		    y_{i+1} &\equiv Ay_i+x_i \pmod{P} \\
 		    y_i &= orbit_{i+1}-orbit_i \\
