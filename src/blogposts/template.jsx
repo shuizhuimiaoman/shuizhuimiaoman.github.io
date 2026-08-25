@@ -4,7 +4,9 @@ import { HashLink } from 'react-router-hash-link';
 import { FaArrowLeft } from "react-icons/fa";
 import { MdCalendarToday } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import { Download, CodeBlock } from '../Components.jsx';
+import { BlockMath, InlineMath } from "react-katex";
+import "katex/dist/katex.min.css";
+import { Terminal, Download, CodeBlock } from '../Components.jsx';
 
 function template() {
     return (
